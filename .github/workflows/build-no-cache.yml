@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
 jobs:
   build:
-    name: Build with cache job
+    name: Build no cache job
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
