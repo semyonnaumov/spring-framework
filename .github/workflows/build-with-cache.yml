@@ -1,8 +1,6 @@
 name: Build with cache
 on:
-  push:
-    branches:
-    - '*'
+  workflow_dispatch:
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -14,6 +12,6 @@ jobs:
       with:
         distribution: 'temurin'
         java-version: '21'
-        cache: 'my-gradle-gradle'
+        cache: 'gradle'
     - name: Build project
       run: ./gradlew build --no-daemon
