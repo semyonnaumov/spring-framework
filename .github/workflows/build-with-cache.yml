@@ -1,0 +1,19 @@
+name: Build with cache
+on:
+  push:
+    branches:
+    - '*'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: Setup Java and cache
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'temurin'
+        java-version: '21'
+        cache: 'my-gradle-gradle'
+    - name: Build project
+      run: ./gradlew build --no-daemon
